@@ -1,3 +1,18 @@
-body {
-    background-color: gray;
+#main {
+    background-color: black;
+    color: white;
+}
+
+#stats {
+    background-color: green;
+}
+
+#actions {
+    border: 1px white solid;
+    padding: 5px;
+}
+
+#text {
+    background-color: lightblue;
+    color: black;
 }
