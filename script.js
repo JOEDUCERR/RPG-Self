@@ -62,30 +62,78 @@ const locations = [
     },
     {
         name: "Sector 4",
-        "button text": ["Go to Sector 4", "Go to City Centre", "Go to Chas"],
-        "button function": [goSector4, goCityCentre, goChas],
+        "button text": ["Enter Home (Safehouse)", "Pet Velvet", "Back to Hatia"],
+        "button function": [enterHome, petVelvet, goHatia],
+        text: "You enter Sector 4, your home colony. You see Velvet your pet dog at your home."
+    },
+    {
+        name: "City Centre",
+        "button text": ["Buy Cough Syrup (10 Gold)", "Buy Weapon (30 Gold)", "Back to Hatia"],
+        "button function": [buyCoughSyrup, buyWeapon, goHatia],
         text: "You go back and see the signboard, Hatia Sabji Market."
     },
     {
-        name: "Hatia Sabji Market",
-        "button text": ["Go to Sector 4", "Go to City Centre", "Go to Chas"],
-        "button function": [goSector4, goCityCentre, goChas],
-        text: "You go back and see the signboard, Hatia Sabji Market."
-    },
-    {
-        name: "Hatia Sabji Market",
-        "button text": ["Go to Sector 4", "Go to City Centre", "Go to Chas"],
-        "button function": [goSector4, goCityCentre, goChas],
+        name: "Chas",
+        "button text": ["Buy Buff (50 Gold)", "IDK", "Back yo Hatia"],
+        "button function": [buyBuff, idk, goHatia],
         text: "You go back and see the signboard, Hatia Sabji Market."
     },
 ];
 
+button1.onclick = goSector4;
+button2.onclick = goCityCentre;
+button3.onclick = goChas;
+
+function update(location) {
+    button1.innerText = location["button text"][0];
+    button2.innerText = location["button text"][1];
+    button3.innerText = location["button text"][2];
+
+    button1.onclick = location["button function"][0];
+    button2.onclick = location["button function"][1];
+    button3.onclick = location["button function"][2];
+
+    text.innerText = location.text;
+}
+
+function goHatia() {
+    update(locations[0]);
+}
+
 function goSector4() {
+    update(locations[1]);
 
 }
 function goCityCentre() {
+    update(locations[2]);
 
 }
 function goChas() {
+    update(locations[3]);
 
+}
+
+function enterHome() {
+    health = health + 10;
+    healthText = health;
+}
+
+function petVelvet() {
+    xp = xp+1;
+}
+
+function buyCoughSyrup() {
+    health = health + 30;
+    gold = gold - 10;
+}
+function buyWeapon() {
+
+}
+
+function buyBuff() {
+    xp = xp + 50;
+    gold = gold - 50;
+}
+function idk() {
+    text.innerText = "idk";
 }
